@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Load External JSON File</title>
+  </head>
+  <body>
+    <h1>External JSON Data</h1>
+    <ul id="notes"></ul>
+
+    <script>
+      const jsonData = {
+        Note: {
+          "-NVKo0biWu7gK81hdPH7": {
+            Types: "Free Writing",
+            Answer: "hello 1",
+            Question: "Hii 1 ",
+          },
+          "-NVOWy5fXqL4tGU6Nw_b": {
+            Types: "Short type Question",
+            Answer: "hello 2",
+            Question: "Hii 2 ",
+          },
+          "-NVPC_AFuL-CDdQFZLzy": {
+            Types: "Short type Question",
+            Answer: "hello 3",
+            Question: "Hii 3 ",
+          },
+        },
+      };
+
+      const notes = jsonData.Note;
+      const notesDiv = document.getElementById("notes");
+
+      let uniqueTypes = new Set();
+
+      for (const key in notes) {
+        if (notes.hasOwnProperty(key)) {
+          const note = notes[key];
+          uniqueTypes.add(note.Types);
+        }
+      }
+
+      for (const type of uniqueTypes) {
+        const typeDiv = document.createElement("div");
+        typeDiv.className = "card";
+        // typeDiv.classList.add("note-item");
+        typeDiv.innerHTML = `<div class="card-body">${type}</div>`;
+        typeDiv.onclick = function () {
+          alert(`You clicked on ${type}`);
+        };
+        notesDiv.appendChild(typeDiv);
+      }
+    </script>
+  </body>
+</html>

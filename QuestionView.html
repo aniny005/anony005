@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Questions and Answers</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      .card {
+        padding: 10px;
+        width: 90%;
+        margin: auto;
+        margin-top: 15px;
+        border: 1px solid rgba(0, 0, 0, 0.164);
+        box-shadow: 2px 2px 5px #0000002c;
+        font-weight: bold;
+        color: #313131;
+        display: flex;
+      }
+      .padText {
+        padding: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      className="Nav_back"
+      style="
+        width: 100%;
+        background-color: #080053;
+        box-shadow: 2px 2px 5px #0000003a;
+        color: #fff;
+        padding: 10px;
+        margin-bottom: 10px;
+        display: Flex;
+        justify-content: space-between;
+        position: fixed;
+        top: 0;
+      "
+    >
+      <div class="rig" id="goBack" style="color: #ffffffa4" onclick="goBack()">
+        Back
+      </div>
+
+      <div className="lef">English Solution</div>
+      <div></div>
+    </div>
+    <br /><br />
+    <div id="questions"></div>
+    <!-- <ul id="answers"></ul> -->
+
+    <script>
+      const questions = JSON.parse(localStorage.getItem("questions"));
+      const answers = JSON.parse(localStorage.getItem("answers"));
+
+      const questionsDiv = document.getElementById("questions");
+      const answersDiv = document.getElementById("answers");
+
+      for (let i = 0; i < questions.length; i++) {
+        const questionItem = document.createElement("div");
+        questionItem.className = "card";
+        questionItem.innerHTML = `<div class="padText">${
+          i + 1
+        })</div><div class="card-body">${questions[i]}</div>`;
+        questionsDiv.appendChild(questionItem);
+
+        questionItem.onclick = function () {
+          localStorage.setItem("questionsV", questions[i]);
+          localStorage.setItem("answersV", answers[i]);
+          window.location.href = "AnswerShow.html";
+        };
+
+        // const answerItem = document.createElement("li");
+        // answerItem.textContent = answers[i];
+        // answersDiv.appendChild(answerItem);
+      }
+      const goBackButton = document.getElementById("goBack");
+
+      goBackButton.onclick = function () {
+        window.history.back();
+      };
+    </script>
+
+    <br />
+    <br />
+    <br />
+    <br />
+  </body>
+</html>

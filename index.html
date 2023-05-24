@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Load External JSON File</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      .card {
+        padding: 10px;
+        width: 90%;
+        margin: auto;
+        margin-top: 10px;
+        border: 1px solid rgba(0, 0, 0, 0.164);
+        box-shadow: 2px 2px 5px #0000002c;
+        font-weight: bold;
+        color: #313131;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      className="Nav_back"
+      style="
+        width: 100%;
+        background-color: #080053;
+        box-shadow: 2px 2px 5px #0000003a;
+        color: #fff;
+        padding: 10px;
+        margin-bottom: 10px;
+        display: Flex;
+        justify-content: space-between;
+        position: fixed;
+        top: 0;
+      "
+    >
+      <div className="rig"></div>
+      <div className="lef">English Solution</div>
+      <div></div>
+    </div>
+    <br /><br />
+    <div id="notes"></div>
+
+    <script>
+      const jsonData = {
+        Note: {
+          "-NVKo0biWu7gK81hdPH7": {
+            Types: "Free Writing",
+            Answer:
+              "Education is a powerful tool that can empower individuals in various ways. It provides knowledge, skills, and opportunities that help individuals achieve their goals and lead a fulfilling life. Education helps individuals make informed decisions by developing critical thinking, problem-solving, and analytical skills. It broadens perspectives and creates awareness about social issues, making individuals more empathetic and motivated towards creating positive change in society. Education also provides opportunities for personal and professional growth, opening up new career opportunities and allowing individuals to network with like-minded individuals. Through my personal experience, I have seen how education has transformed individuals, including myself, by providing these benefits. Overall, education is an essential aspect of personal and societal development that should be accessible to everyone, regardless of their background or circumstances. By empowering individuals through education, we can create a better world for ourselves and future generations.",
+            Question:
+              '"Education empower a person " Elaborate this statement giving examples of your personal experience',
+          },
+          "-NVOWy5fXqL4tGU6Nw_b": {
+            Types: "Free Writing",
+            Answer:
+              "<b> Title of the movie: Jhola <br> Director: Yadav Kumar Bhattarai <br> Producers: Raj Timalsina, Ram Gopal Thapa and Sushil Shah <br> Starring: Garima Panta, Desh Bhakta Khanal, Sujal Nepal, Laxmi Giri and Deepak Chhetri <br> Genre: Social <br> Duration: 90 minutes <br> Language: Nepali<br> Release Date: 7 December 2013 <br> </b> 'Jhola' is a Nepali film based on Krishna Dharawasi's short story \"Jhola\". It has depicted Nepali society about the Sati tradition that was prevalent until the 1920s. The film has beautifully presented the issues of violence against women. \"Has Nepalese society really passed through such inhuman tradition?\" is the question every youngster wonders about. <br><br> The plot develops with the death of Garima's husband in which she has to immolate herself upon her husband's death, typically on his funeral pyre. She is supposed to be burnt alive with the dead body of her husband according to the tradition. However, she escapes the fire and hides in a cave. The help of her son fascinates the audience. <br><br> Almost all the scenes seem realistic and historical. Traditional tools like dhiki, janto, madaani, etc. give a traditional look to the film. Similarly traditional lights like ranko, diyalo and fire place represent ancient environment to the spectators. In addition to Sati tradition, the movie also touches Kamara Kamari(a kind of slavery) tradition. What a beautiful cinematography it is! I think costumes of the artists and the leaf music in traditional tunes touch the heart of every one present in the cinema hall. Garima's natural appearance, her role and her acting are spellbinding and add to the beauty of the movie. <br><br> This is a must watch movie. Don't miss it.",
+            Question:
+              "Write a review of a book/film you have recently read or watched.",
+          },
+          "-NVOZxTY8s09V__ngPPT": {
+            Types: "Free Writing",
+            Answer:
+              "I agree with the statement that \"today's reader is tomorrow's leader.\" Reading is an essential activity that promotes learning and knowledge acquisition, which are essential qualities for leadership. Reading expands our horizons and exposes us to new ideas and perspectives. It helps us understand different cultures, histories, and worldviews, which are all crucial for effective leadership. <br><br>\n\nReading also helps develop critical thinking and problem-solving skills, which are essential for making informed decisions and taking calculated risks. Leaders must be able to analyze complex situations, identify potential solutions, and make decisions that will have a positive impact on their organizations and communities.<br><br>\n\nMoreover, reading enhances communication skills, which are critical for effective leadership. Leaders must be able to articulate their vision and ideas clearly and persuasively to inspire and motivate their followers.<br><br>\n\nIn conclusion, reading is a critical component of leadership development. It helps us acquire knowledge, develop critical thinking and problem-solving skills, and enhance communication skills, all of which are essential for effective leadership. Therefore, it is essential to cultivate a habit of reading to become a successful leader.",
+            Question:
+              "It is said that today's reader is tomorrow's leader. Do you agree with statement ? explain. ",
+          },
+          "-NVOeOc2J8n7_8wuSSuc": {
+            Types: "Free Writing",
+            Answer:
+              "A person can be mentally healthy by taking care of their mental health, just like they take care of their physical health. Here are some ways to promote mental health: <br><br><ol><li><b>Practice self-care:</b> Make time for activities that promote relaxation and stress relief, such as meditation, yoga, or reading a book.</li><li><b>Exercise regularly: </b>Exercise is a great way to reduce stress, improve mood, and promote overall mental health.</li><li><b>Get enough sleep:</b> Aim for 7-9 hours of sleep each night to promote mental and physical wellbeing.</li><li><b>Eat a healthy diet: </b>A nutritious and balanced diet can help maintain mental health and reduce the risk of depression and anxiety.</li><li><b>Connect with others: </b>Social connections can provide a sense of belonging and support, which can help improve mental health.</li><li><b>Learn to manage stress: </b>Develop healthy coping mechanisms such as deep breathing, mindfulness, or talking to a trusted friend or therapist.</li><li><b>Set realistic goals: </b>Setting achievable goals can help build confidence and a sense of purpose.</li><li><b>Practice gratitude: </b>Focusing on what we are grateful for can help reduce stress and improve overall mental wellbeing.</li><li><b>Limit exposure to negative news:</b> Excessive exposure to negative news can contribute to feelings of anxiety and stress. Limiting news consumption can help promote mental health.</li><li><b>Seek professional help: </b>If you are experiencing persistent feelings of anxiety or depression, seeking professional help can provide valuable support and treatment.</li></ol>",
+            Question:
+              "How can a person be mentally healthy? provide about ten tips to a person to stay mentally fresh and healthy.",
+          },
+          "-NVOgmrKX4vUe-oTduMp": {
+            Types: "Free Writing",
+            Answer:
+              "Saraswati Puga was a special event that I looked forward to every year during my school days. It was a festival dedicated to the goddess of knowledge, Saraswati, and was celebrated by students all over Nepal. On this day, we paid homage to the goddess of learning and sought her blessings for academic success.<br><br>\n\nThe day began with a special assembly, where the teachers performed a traditional puja (worship) to honor Saraswati. We then sang hymns and recited prayers, asking for her blessings. After the assembly, we had a range of activities, including essay writing, poetry recitation, and art competitions. These activities not only helped us celebrate the festival but also allowed us to showcase our creativity and talent.<br><br>\n\nThe highlight of the day was the cultural program, where students performed traditional Nepalese dances and songs dedicated to Saraswati. It was a colorful and vibrant display of Nepalese culture, and it created a sense of joy and pride among the students. The festival ended with the distribution of prasad (blessed food) and the exchange of gifts among classmates, which made the event even more special.<br><br>\n\nSaraswati Puga was a cherished event during my school days, and it taught me the importance of seeking knowledge and education. It also instilled in me a sense of cultural pride and appreciation for our traditions. Even today, years later, I still remember the joy and excitement of Saraswati Puga, and it serves as a reminder of the importance of celebrating our culture and heritage.<br><br>",
+            Question:
+              "Recall your school days . Write in three paragraphs of an event that you always remember. ",
+          },
+          "-NVOhWZ9gP2DHKrx1zXF": {
+            Types: "Free Writing",
+            Answer:
+              "It is true that many students focus solely on learning what is required for passing exams rather than acquiring knowledge for personal and professional development. While this approach may help them achieve good grades, it may not necessarily help them in their future careers.<br><br>\n\nAlthough certificates and degrees are important for many career paths, employers today value individuals who have a solid understanding of their field of work. Knowing the practical application of what was learned in the classroom is essential. In other words, employers value hands-on experience as much as academic qualifications.<br><br>\n\nIt is therefore important for students to seek opportunities for practical learning such as internships, research, and projects to complement their academic education. These experiences not only enhance the knowledge but also equip students with the skills that are vital in the real-world.<br><br>\n\nIn conclusion, while certificates and degrees are important for professional growth, students should aim to seek knowledge beyond what is required for exams. They should take the opportunity to engage in practical learning experiences and activities that can help them develop the skills and knowledge necessary for a successful career.",
+            Question:
+              "Most of the students want to learn just for examination rather than knowledges. Do you think that certificate will help them in their future Career ?",
+          },
+          "-NVOjNygL_KQW17tX525": {
+            Types: "Long type questions",
+            Answer:
+              '"All the world\'s a stage" is a poem written by William Shakespeare in his play "As You Like It". The poem portrays the various stages of human life in a metaphorical way, comparing it to a play where each person has different roles to play. The poem consists of seven stages of life that a man goes through.<br><br>\n\nThe first stage is infancy, where a baby is born and is completely dependent on his mother. The baby cries and laughs, and his world is limited to his mother\'s arms. This stage is characterized by helplessness and innocence.<br><br>\n\nThe second stage is childhood, where a child is full of energy and is eager to learn. He explores the world around him and learns new things every day. This stage is characterized by playfulness and curiosity.<br><br>\n\nThe third stage is the teenage years, where a person experiences many physical and emotional changes. The teenager is full of energy and enthusiasm, and he starts to explore his identity and independence. He also becomes aware of his sexuality and begins to form romantic relationships.<br><br>\n\nThe fourth stage is adulthood, where a person takes on responsibilities such as marriage, family, and career. The adult is no longer dependent on others for survival and becomes more self-reliant. This stage is characterized by hard work and responsibility.<br><br>\n\nThe fifth stage is middle age, where a person becomes more reflective and introspective. He may experience a midlife crisis, where he questions his achievements and the direction of his life. This stage is characterized by self-reflection and contemplation.<br><br>\n\nThe sixth stage is old age, where a person experiences physical and mental decline. He may also face the loss of loved ones and the challenges of declining health. This stage is characterized by wisdom and reflection on life.<br><br>\n\nThe final stage is death, where a person leaves the stage of life and becomes part of history. According to the poem, life is like a play, and each person plays his part and exits the stage. The poem reminds us that life is temporary, and we should make the most of the time we have on this earth.',
+            Question:
+              "Describe the various stages of a man's life picturised in the poem \"All the world's a stage\".",
+          },
+          "-NVOkoofL70f0V9NxnD0": {
+            Types: "Long type questions",
+            Types: "Long type questions",
+            Answer:
+              "According to Lapena, the oral tradition was particularly important during slavery when African Americans were not allowed to read or write. During this time, the oral tradition was the only way for people to pass down their stories and cultural traditions. This tradition allowed African Americans to maintain their identity and culture despite the oppressive conditions they faced.\n<br><br>\nLapena also argues that the oral tradition continues to be important in modern times. He suggests that the tradition is still relevant because it allows people to connect with their history and cultural heritage. Additionally, he notes that the oral tradition is a way to communicate with people who are not literate or who may not have access to written materials.\n<br><br>\nOverall, I agree with Lapena's opinions on the importance of the oral tradition. I believe that the oral tradition is an essential part of many cultures and can play a critical role in preserving cultural heritage. The oral tradition allows people to connect with their past and maintain a sense of cultural identity. Additionally, it is a powerful tool for communication and can help bridge gaps between people who may not have access to written materials or who may have different cultural backgrounds. In my opinion, the oral tradition should be valued and respected as an essential part of human history and culture.<br><br>",
+            Question:
+              "According to Lapena, what is the importance of the oral tradition ? To what extent do you agree with his opinions and why? (Sharing tradition).",
+          },
+          "-NVOmnYYM37z2EOE9YgA": {
+            Types: "Long type questions",
+            Answer:
+              'The love in the poem is characterized by strong emotions, such as joy, passion, and devotion. The speaker declares that he will love his beloved until the "seas gang dry," which means he will love her until the end of time. The use of hyperbole and vivid imagery, such as "And I will love thee still, my dear, Till a\' the seas gang dry," emphasizes the intensity and depth of the speaker\'s love.<br><br>\n\nThe love expressed in "A Red, Red Rose" is also characterized by a sense of longing and nostalgia. The speaker says he will "luve thee still, my dear" even if he is "in a foreign land." This suggests that the speaker is separated from his beloved, and the distance between them only intensifies his love.<br><br>\n\nIn conclusion, "A Red, Red Rose" expresses a passionate and romantic love that is characterized by strong emotions, devotion, and a sense of longing. The poem\'s vivid imagery and use of hyperbole emphasize the intensity and depth of the speaker\'s love for his beloved.',
+            Question: 'What kind of love is expressed in "A Red, Red Rose" ?',
+          },
+          "-NVP4_FAdUVJpw-xvV6A": {
+            Types: "Long type questions",
+            Answer:
+              "Unemployment the word itself if stays longer would affect the cost of the economy. The entire individual who is not working in the referenced period falls under the category of unemployment. They might be anyone who is highly skilled or having no skills. When unemployment reaches above the expected rates it subtle the growth and leads to social issues. With no money, there is no education, food resources and basic elements for the survivor. Whether someone is homeless or has no job, this all head place to social issues. <br><br>\n\nIn conclusion, unemployment is the major problem that creates disturbance, stress and lowers down a growing economy. The personal and social concern has been associated with poverty, population, lack of technologies, health risks, and slow expansion of the business. All these issues arise when unemployment exponentially grow within countries. This certainly remarks about the serious problems of housing and hopeless life. Unemployment causes harm for the economy not in the sense of waste of resources but also by building pressure on the community. <br><br>\n\nAccording to Parker, poverty is about lack of having enough money for necessities, better foodstuffs, very little education and little or no access to health care. It is like an acid that destroys pride, honour, health and future. Overall poverty means living without hope, better foods, medical care and proper education.",
+            Question:
+              "Define a social problem (homelessness, unemployment, racism) imitating Parker’s style. What is poverty ?",
+          },
+          "-NVP6CO0yscI_n50bPuI": {
+            Types: "Long type questions",
+            Answer:
+              "This poem 'Corona Says' is about a subtle satire on man's conduct and attitude which has been composed on the theme of the present world crisis Corona and its devastating impacts on human life. This pandemic 'Corona' has been presented as a by-product of man's treatment of nature. <br><br>\n\nThe speaker of this poem is Corona who is seen talking to a man putting his opinions about men's conduct related to this nature. He tries his best to persuade that he isn't the real outcome behind this devastation of humanity but the humans themselves. He tries to show the mirror of facts to humans saying that he didn't arrive here on this planet by his own free will. He claims that he was invited by humans' conduct. He even blames humans for their inhuman wars and their impacts. He talks about the ego of humans who prefer to be superior to this world. He shows the value of other living beings as well as natural resources on this planet. He talks about a pollutionless environment during this crisis. He adds that he has come to give little rest to mother earth. He makes humans realise saying that the earth isn't their property alone. He informs all the humans about other diseases similar to him and warns about their arrival and humans' steps towards the cave if humans don't get rid of their inflated ego.",
+            Question: 'summarise the poem " Corona says ".',
+          },
+          "-NVP8Tq0F7CD4X-9kbrU": {
+            Types: "Short type Question",
+            Answer:
+              "The giant realised his mistake by experiencing unusual changes in his garden. He found out snow, frost, north wind, fog, etc. in his garden. He felt guilty himself for all those acts which he had done against the children. When the children reappeared in his garden, the garden once again bloomed with leaves and flowers. He even heard the chirping of birds in his garden. Thus, he realised his mistake.",
+            Question:
+              "How did the giant realise his mistake? (The selfish Giant) ",
+          },
+          "-NVP97z7xJ_0R4pZCck0": {
+            Types: "Short type Question",
+            Answer:
+              "The “five inestimable blessings” were his head, his wife Maroa’s head and the heads of 3 out of their four children for which Jonathan is very grateful.",
+            Question:
+              "What are the ‘five blessings’ for which Jonathan is grateful? ( Civil peace ) ",
+          },
+          "-NVP9vHYvuaAlRzpGoHL": {
+            Types: "Short type Question",
+            Answer:
+              "The speaker is remembering an extremely beautiful scene of nature from his childhood days in the poem. He is remembering himself as a little boy of five or six years in some high window who is peering and enjoying the beautiful golden sunset and its transformation in November.",
+            Question:
+              "What is the speaker remembering from his childhood days in the poem? ( Who Are You, Little I ) ",
+          },
+          "-NVPAMdPVx1uUb3SBNdM": {
+            Types: "Short type Question",
+            Answer:
+              "The speaker’s attitude toward war is quite negative. She has experienced the terrible war between America and Vietnam. She has lost the most lovable person of her life due to war. Due to the lack of him, she has been experiencing pitiable lonely life. She has presented various negative aspects of the war in her poem.",
+            Question:
+              "What is the speaker’s attitude toward war? ( The Gift in Wartime ) ",
+          },
+          "-NVPBQWOkWx4ifdXecty": {
+            Types: "Short type Question",
+            Answer:
+              "The writer distinguishes between a period of peace and a period of heroism, and compares two different periods: he calls the moment of birth a period of peace and his youth as a period of heroism. When the First World War broke out (22 years old), he wanted to live in peace but devoted himself to the heroic war.",
+            Question:
+              "How does the writer distinguish between a peaceful age and a heroic age? ( What I Require From Life ) ",
+          },
+          "-NVPC-4OB6amiG19pltY": {
+            Types: "Short type Question",
+            Answer:
+              "The two soldiers spend their free time on Sundays away from the barracks out in the countryside because they had seen a girl on their way who was a dairymaid.",
+            Question:
+              "Why do the two soldiers spend their free time on Sundays away from the barrack out in the countryside? ( Two Little Soldiers ) ",
+          },
+          "-NVPCIAtHq_qgu6Lxpdt": {
+            Types: "Short type Question",
+            Answer:
+              " The child examined his knee cap’s scab at first. He pondered much and decided to pick it up. He gently picked that scab with his fingernail and put it on his thigh. Finally, he flipped it with his finger.",
+            Question:
+              "What did the child do to the scab on his knee? ( The Wish ) ",
+          },
+          "-NVPC_AFuL-CDdQFZLzy": {
+            Types: "Short type Question",
+            Answer:
+              "Aksionov was a very handsome and jovial person who used to seek his happiness. Before marriage, he had very bad habits of drinking alcohol and involving in fights. He used to drink much and become riotous.",
+            Question:
+              "What bad habits did Aksionov have before his marriage? ( God Sees the Truth but Waits ) ",
+          },
+        },
+      };
+
+      const notes = jsonData.Note;
+      const notesDiv = document.getElementById("notes");
+
+      let uniqueTypes = new Set();
+
+      for (const key in notes) {
+        if (notes.hasOwnProperty(key)) {
+          const note = notes[key];
+          uniqueTypes.add(note.Types);
+        }
+      }
+
+      for (const type of uniqueTypes) {
+        const typeDiv = document.createElement("div");
+        typeDiv.className = "card";
+        // typeDiv.classList.add("note-item");
+        typeDiv.innerHTML = `<div class="card-body">${type}</div>`;
+        typeDiv.onclick = function () {
+          const filteredNotes = Object.values(notes).filter(
+            (note) => note.Types === type
+          );
+          const questions = filteredNotes.map((note) => note.Question);
+          const answers = filteredNotes.map((note) => note.Answer);
+          localStorage.setItem("questions", JSON.stringify(questions));
+          localStorage.setItem("answers", JSON.stringify(answers));
+          window.location.href = "QuestionView.html";
+        };
+        notesDiv.appendChild(typeDiv);
+      }
+    </script>
+  </body>
+</html>
